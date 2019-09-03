@@ -1,5 +1,5 @@
 num = [0,1];
-den = [0.61,0.2,150];
+den = [1.13,0.2,150];
 
 sys = tf(num,den)
 sys1 = ss(sys);
