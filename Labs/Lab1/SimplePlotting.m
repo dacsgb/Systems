@@ -14,7 +14,6 @@ plot(t,z);
 title('Demo of Simple Plotting');
 xlabel('Time - s');
 ylabel('z - ft');
-[argvalue, argmax] = max(z)
 pause   % hit enter to go to the next plot
 
 plot(t,y,'r',t,z,'g');

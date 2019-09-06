@@ -5,11 +5,7 @@ clf  %clear any existing plots
 
 [t,y1] = ode45(  @deriv,[0,0.1],[0,1e5,1e5]); % derivative, time range, initial conditions
 
-plot(t,y1(:,3),'b'); %tvals,yvals, color and style
-title('Velocity of mass');
-xlabel('Time - [s]');
-ylabel('Position of mass - [m]');
-pause   % hit enter to go to the next plot
+p1_analytic = 10e-6 * (7-14*exp(-400*t)*
 
 plot(t,y1(:,2),'r',t,y1(:,3),'b'); %tvals,yvals, color and style
 title('Pressure in chamber 1 and 2');
