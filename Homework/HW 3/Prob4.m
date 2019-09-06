@@ -1,13 +1,14 @@
 function SolveODEs()
 clf  %clear any existing plots
 
-% State defined as X = [xdot, p1,p2]
+% State defined as X = [x, xdot, p1,p2]
 start = 0;
 finish = 0.1;
-[t_lin,y_lin] = ode45(  @deriv_lin,[start,finish],[0,1e5,1e5]); % derivative, time range, initial conditions
-[t_nonlin,y_nonlin] = ode45(  @deriv_nonlin,[start,finish],[0,1e5,1e5]);
 
-plot(t_lin,y_lin(:,2),'r',t_nonlin,y_nonlin(:,2),'b'); %tvals,yvals, color and style
+[t_lin,y_lin] = ode45(  @deriv_lin,[start,finish],[0,0,1e5,1e5]); % derivative, time range, initial conditions
+[t_nonlin,y_nonlin] = ode45(  @deriv_nonlin,[start,finish],[0,0,1e5,1e5]);
+
+plot(t_lin,y_lin(:,3),'r',t_nonlin,y_nonlin(:,3),'b'); %tvals,yvals, color and style
 title('Pressure in chamber 1 and 2');
 xlabel('Time - [s]');
 ylabel('Pressure 1 - [Pa]');
@@ -21,7 +22,7 @@ V = 1.473e-4;   beta = 2e9;     pa=1e5;
 m = 30;         ps =1.4e7;      Kv = 2e-5;
 
 % Rename states
-xdot = X(1);   p1 = X(2);   p2 = X(3);
+x = X(1); xdot = X(2);   p1 = X(3);   p2 = X(4);
 
 % Initiate forcing function
 y = 0.002;
@@ -31,7 +32,7 @@ xddot = A*(p1-p2)/m;
 p1dot = (y*Kv*(ps-p1)-rho*A*xdot)*((beta)/(V*rho));
 p2dot = (y*Kv*(p2-pa)-rho*A*xdot)*((-beta)/(V*rho));
 
-XDOT = [ xddot;  p1dot;  p2dot] ;  %return the derivative values
+XDOT = [xdot; xddot;  p1dot;  p2dot] ;  %return the derivative values
 
 function XDOT = deriv_nonlin(t,X)
 % System Parameters
@@ -40,7 +41,7 @@ V = 1.473e-4;   beta = 2e9;     pa=1e5;
 m = 30;         ps =1.4e7;      Kv = 2e-5;
 
 % Rename states
-xdot = X(1);   p1 = X(2);   p2 = X(3);
+x = X(1); xdot = X(2);   p1 = X(3);   p2 = X(4);
 
 % Initiate forcing function
 y = 0.002;
@@ -50,4 +51,4 @@ xddot = A*(p1-p2)/m;
 p1dot = (y*Kv*sign(ps-p1)*sqrt(abs(ps-p1))-rho*A*xdot)*((beta)/(V*rho));
 p2dot = (y*Kv*sign(p2-pa)*sqrt(abs(p2-pa))-rho*A*xdot)*((-beta)/(V*rho));
 
-XDOT = [ xddot;  p1dot;  p2dot] ;  %return the derivative values
+XDOT = [ xdot; xddot;  p1dot;  p2dot] ;  %return the derivative values

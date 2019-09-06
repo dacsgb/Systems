@@ -8,7 +8,7 @@ clf  %clear any existing plots
 plot(t,y1(:,2),'b'); %tvals,yvals, color and style
 title('Velocity of mass');
 xlabel('Time - [s]');
-ylabel('Velocity of piston- [m/s]');
+ylabel('Velocity of - [m]');
 pause   % hit enter to go to the next plot
 
 plot(t,y1(:,3),'r',t,y1(:,4),'b'); %tvals,yvals, color and style
