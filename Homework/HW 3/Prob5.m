@@ -10,6 +10,8 @@ den = [R2*C*L, R1*R2*C+L, R1+R2];
 T = tf(num,den);
 
 % Step Response
-opt = stepDataOptions('InputOffset',0,'StepAmplitude',12);
+opt = stepDataOptions('StepAmplitude',12);
 step(T,opt)
+xlabel('Time')
+ylabel('Voltage - [V]')
 pause

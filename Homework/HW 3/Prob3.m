@@ -3,11 +3,11 @@ clf  %clear any existing plots
 
 % State defined as X = [x, xdot, p1,p2]
 
-[t,y1] = ode45(  @deriv,[0,0.1],[0,0,1e5,1e5]); % derivative, time range, initial conditions
+[t,y1] = ode45(  @deriv,[0,0.05],[0,0,1e5,1e5]); % derivative, time range, initial conditions
 
-p1_analytic = (7-14.*exp(-400.*t).*sin(800.*t+1.55)).*10e6;
+p1_analytic = (7-14.*exp(-400.*t).*sin(800.*t+1.55)).*10^6;
 
-plot(t,y1(:,3),'r',t,p1_analytic,'b'); %tvals,yvals, color and style
+plot(t,y1(:,3),'b',t,p1_analytic,'r'); %tvals,yvals, color and style
 title('Simulation and analytic solution comparison');
 xlabel('Time - [s]');
 ylabel('Pressure 1 - [Pa]');

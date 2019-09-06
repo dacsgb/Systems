@@ -3,18 +3,18 @@ clf  %clear any existing plots
 
 % State defined as X = [x,xdot, p1,p2]
 
-[t,y1] = ode45(  @deriv,[0,1],[0,0,1e5,1e5]); % derivative, time range, initial conditions
+[t,y1] = ode45(  @deriv,[0,0.05],[0,0,1e5,1e5]);
 
-plot(t,y1(:,2),'b'); %tvals,yvals, color and style
+plot(t,y1(:,2),'b');
 title('Velocity of mass');
 xlabel('Time - [s]');
 ylabel('Velocity of piston- [m/s]');
-pause   % hit enter to go to the next plot
+pause
 
-plot(t,y1(:,3),'r',t,y1(:,4),'b'); %tvals,yvals, color and style
+plot(t,y1(:,3),'r',t,y1(:,4),'b');
 title('Pressure in chamber 1 and 2');
 xlabel('Time - [s]');
-ylabel('Pressure 1 - [Pa]');
+ylabel('Pressure - [Pa]');
 legend('p1','p2')
 
 pause % hit enter to go to the next plot
