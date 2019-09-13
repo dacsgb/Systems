@@ -59,7 +59,7 @@ pause
 
 clear all
 clc
-
+clf
 %% Function Definitions 
 
 function XDOT = deriv(t,X)
