@@ -45,7 +45,7 @@ pause;
 
 % Solution Comparison
 
-plot(t,x,'b',t,xsim,'k')
+plot(t,x,'b',t,xsim,'o')
 xlabel('Time - [s]')
 ylabel('Displacement - [m]')
 title('Solution Comparison')
