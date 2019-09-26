@@ -3,7 +3,7 @@ clc
 
 I = 1.8;    L1 = 0.6;   L2 = 0.6;
 L3 = 1.5;   m = 3;      c = 5;
-k = 100;    g = 9.81;   A = 0.25;
+k = 100;    g = 9.81;   A = 5;
 It = I + m*L3^2;
 
 num = [L1*k];
@@ -34,7 +34,7 @@ xlabel('Time - [s]')
 ylabel('Angular Displacent - [rad]')
 
 figure(3)
-plot(t,theta1,'b',t,0.25.*theta2,'k--')
+plot(t,theta1,'b',t,A.*theta2,'k--')
 title('Solution Comparison')
 xlabel('Time - [s]')
 ylabel('Angular Displacent - [rad]')
