@@ -21,6 +21,8 @@ dP = np.linspace(0,30*10**3,500)
 Q1 = q_lin(dP)
 Q2 = q_nonlin(dP)
 
+#help me here
+
 plt.figure(1)
 plt.plot(dP,Q2,'--',label='Nonlinear')
 plt.plot(dP,Q1,label='Linear')
