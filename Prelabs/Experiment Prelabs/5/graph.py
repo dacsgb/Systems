@@ -2,7 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 
-def sys(t,u):
+def sys_theory(t,u):
 
     I = 5*10**-4
     c = 5*10**-4
