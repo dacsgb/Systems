@@ -9,6 +9,7 @@ c = 0.01;
 c = 0.1;
 [t3,states3] = ode45(@deriv,[0,0.2],[0,0]);
 
+size(states1)
 
 figure(1)
 plot(t1,states1(:,2))
@@ -21,6 +22,7 @@ title('Angular Velocity Response')
 xlabel('Time - [s]')
 ylabel('Angular Velocity - [rad/s]')
 legend('c = 0', 'c = 0.01', 'c = 0.1')
+
 
 
 function XDOT = deriv(t,X)
